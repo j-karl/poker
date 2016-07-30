@@ -182,14 +182,14 @@ $(function(){
 						left:600,
 						opacity:0
 					}).queue(function(){
-						$(this).remove();
+						$(this).remove().dequeue();
 					});
 					$(this).animate({
 						top:0,
 						left:600,
 						opacity:0
 					}).queue(function(){
-						$(this).remove();
+						$(this).remove().dequeue();
 					});
 					$('.dangqiantishi').html('当前有0对可以匹配');
 
@@ -203,7 +203,6 @@ $(function(){
 					}
 					return;
 				}else{
-
 					if(last.hasClass('chulie') && $(this).hasClass('chulie')){
 						last.delay(400).animate({
 							top:'+=10'
@@ -212,6 +211,8 @@ $(function(){
 							top:'+=10'
 						});
 					}
+
+
 					$('.dangqiantishi').html('当前有0对可以匹配');
 					$('.desk .chulie').removeClass('chulie');
 					last = null;
