@@ -10,28 +10,6 @@
 //delay();
 //stop();
 $(function(){
-	// $(".demo").animate({'width':400})
-	// .delay(2000)
-	// .queue(function(){
-	// 	$(this).css({'backgroundColor':'blue'}).dequeue();
-	// })
-	// .animate({'height':500});
-
-	// for(var i=0; i<100; i++){
-		// var lefts = Math.floor(Math.random()*$(document).width());
-		// var tops = Math.floor(Math.random()*$(document).height());
-		// var w = Math.floor(Math.random()*4+3);
-		// $("<div>")
-		// .width(w)
-		// .height(w)
-		// .addClass("demo")
-		// .appendTo('body')
-		// .delay(i*10)
-		// .animate({
-		// 	left:lefts,top:tops
-		// });
-	// }
-
 	//生成一副扑克牌
 	var cishitishi = $('.cishutishi');
 	var right = $('.right');
@@ -142,13 +120,9 @@ $(function(){
 					})
 			}
 
-		// console.log(pokers);
-
 		$('.poker').on('click',function(e){
 			e.stopPropagation();
-			// console.log($(this));
 			if($(this).hasClass('shang') && isClickable(this)){
-				// console.log(1);
 				return;
 			}
 			if($(this).data('sub') == 13){
@@ -157,7 +131,7 @@ $(function(){
 					top:0,
 					opacity:0
 				}).queue(function(){
-					$(this).remove();
+					$(this).remove().dequeue();
 				})
 				return;
 			}
@@ -233,8 +207,6 @@ $(function(){
 				return;
 			})
 
-			// var aa = pickRightTop($('.you'));
-			// console.log(aa);
 			function pickRightTop(el){
 				var zindex = [];
 				var max = el[0];
@@ -250,7 +222,6 @@ $(function(){
 			var xiapai = $('.zuo');
 			var leftFrist = $('.zuo').eq(-1);
 			var you = $('.you');
-			// console.log(pickRightTop(you));
 			var arr = [];
 			var newarr1 = [];
 			var newarr = [];
@@ -266,7 +237,6 @@ $(function(){
 			}
 			arr.push(leftFrist);
 			arr.push(pickRightTop(you));
-			// console.log(arr);
 			for(var i=0; i<arr.length; i++){
 				if($(this).attr('id') === $(arr[i]).attr('id')){
 					arr.splice(i,1);
@@ -320,12 +290,9 @@ $(function(){
 					},2000)
 					return;
 				}
-				// cishitishi.addClass();
 				if(count > 4){
 					spancishu.html('没有机会了!');
 					$('.cishutishi').addClass('show');
-					// },1000)
-					// cishutishi();
 					$('.dangqiantishi').removeClass('ss');
 					$('.zongtishi').removeClass('sss');
 					setTimeout(function(){
@@ -334,8 +301,6 @@ $(function(){
 					if(zongcishu == 0){
 						alert("youxishibai");
 					}
-
-					// alert("游戏失败，请重新开始");
 					return;
 				}else{
 					numb--;
@@ -345,8 +310,6 @@ $(function(){
 						spancishu.html('还有'+numb+'次机会');
 					}
 					$('.cishutishi').addClass('show');
-					// },1000)
-					// cishutishi();
 					setTimeout(function(){
 						$('.cishutishi').removeClass('show')
 					},2000)
