@@ -211,6 +211,7 @@ body{
 	font-family: '微软雅黑';
 	background: #333855;
 	border-radius: 5px;
+	cursor: pointer;
 }
 .text{
 	width: 100px;
